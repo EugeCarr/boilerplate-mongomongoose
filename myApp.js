@@ -47,10 +47,10 @@ const createManyPeople = (arrayOfPeople, done) => {
 const findPeopleByName = (personName, done) => {
   People.find({name: personName}, function(err, foundPeople){
     if(err){
-      return console.error(err);
+      return console.log(err);
     }else{
-      done(null, foundPeople)
-    };
+      done(null, foundPeople);
+    }
   });
 };
 
