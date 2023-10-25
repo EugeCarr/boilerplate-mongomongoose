@@ -23,7 +23,7 @@ const createAndSavePerson = (done) => {
     }
   );
 
-  newPerson.save(function(err, newPerson){
+  newPerson.save(function(err, data){
     if(err){
       return console.error(err)
     }else{
