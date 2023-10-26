@@ -97,9 +97,11 @@ const findAndUpdate = (personName, done) => {
   Person.findOneAndUpdate(
     {name:personName},
     {age: ageToSet},
-    {new: true}
-  );
-  done(null /*, data*/);
+    {new: true},
+    function(err, data){
+      if(err) return console.log(err);
+      done(null, data);
+    });
 };
 
 const removeById = (personId, done) => {
