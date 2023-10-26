@@ -86,9 +86,12 @@ const findEditThenSave = (personId, done) => {
   console.log(person);
   person.save(function(err, data){
     if(err) return console.log(err);
-    done(null, data);
+    if(!person){
+      return console.log("No person found with this Id")
+    }else{
+      done(null, data);
+    }
   })
-  done(null /*, data*/);
 };
 
 const findAndUpdate = (personName, done) => {
