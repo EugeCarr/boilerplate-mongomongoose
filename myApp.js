@@ -85,7 +85,7 @@ const findEditThenSave = (personId, done) => {
     person.favoriteFoods.push(foodToAdd);
     person.save(function(err, data){
       if(err) return console.log(err);
-      if(!person){
+      if(!data){
         return console.log("No person found with this Id")
       }else{
         done(null, data);
