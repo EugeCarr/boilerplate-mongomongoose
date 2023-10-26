@@ -124,8 +124,15 @@ const removeManyPeople = (done) => {
 
 const queryChain = (done) => {
   const foodToSearch = "burrito";
-
-  done(null /*, data*/);
+  Person.find(
+    {
+      favoriteFoods: foodToSearch
+    }).select("-age").limit(2).exec(
+      function(err, data){
+        if(err) return console.log(err);
+        done(err, data)
+      }
+    )
 };
 
 /** **Well Done !!**
