@@ -81,7 +81,7 @@ const findEditThenSave = (personId, done) => {
   const foodToAdd = "hamburger";
   let person = Person.findById(personId, function(err, data){
     if(err) return console.log(err);
-  });
+  }).select(["name", "favoriteFoods"]);
   console.log(person);
   let currentFoods = person.favoriteFoods;
   currentFoods.push(foodToAdd);
